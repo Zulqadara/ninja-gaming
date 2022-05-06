@@ -1,7 +1,8 @@
 <script context="module"> // used to fetch data
+    //https://kit.svelte.dev/docs/routing -- API routing for different methods
     export async function load({fetch}){
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const guides = await res.json();
+        const res = await fetch('/guides.json'); // /guides/index.json (index can be ommited)
+        const {guides} = await res.json();
         
         if(res.ok){
             return {
